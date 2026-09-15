@@ -1,0 +1,26 @@
+{
+  "name": "aysenur-homework",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "homeworks:index": "node scripts/build-homework-index.mjs",
+    "test": "npm run test:privacy && npm run test:architecture && npm run test:progress",
+    "test:privacy": "node --test tests/public-package-privacy.test.mjs",
+    "test:architecture": "node --test tests/architecture-v1-package.test.mjs",
+    "test:progress": "node --test tests/browser-progress.test.mjs",
+    "validate": "node scripts/validate.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "build": "npm run homeworks:index && npm run validate && vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "lucide-react": "0.468.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.4",
+    "vite": "5.4.11"
+  }
+}

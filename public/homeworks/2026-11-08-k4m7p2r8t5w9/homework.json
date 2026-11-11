@@ -1,0 +1,212 @@
+{
+  "id": "2026-11-08-k4m7p2r8t5w9",
+  "date": "2026-11-08",
+  "title": "Everyday Grammar, Real Life",
+  "subtitle": "A friendly A1 revision pack for clear sentences, time, work, and daily plans.",
+  "policyVersion": "aysenur-english-only-dialogue-revision@2",
+  "templateContractVersion": "aysenur-three-day-dialogue-practice@2",
+  "assessmentPolicyVersion": "aysenur-no-final-quiz@2",
+  "days": [
+    {
+      "id": "day-1",
+      "shortTitle": "Clear sentences",
+      "title": "Day 1 — Build clear sentences",
+      "intro": "Start with simple word order. Then review Past Simple and Present Perfect with useful work words.",
+      "activities": [
+        {
+          "id": "start-small",
+          "kind": "lesson-notes",
+          "title": "A simple sentence has a clear order",
+          "instructions": "Read the patterns aloud. Use a short sentence first; you can add more information after it.",
+          "content": "Statement: subject + verb + extra information. “Maya starts work at nine.”\nQuestion: question word / do / does + subject + verb? “What time does Maya start?”\nNegative: subject + do not / does not + verb. “Maya does not start at eight.”\nWith be: subject + am / is / are. “The meeting is on Monday.”"
+        },
+        {
+          "id": "tense-guide",
+          "kind": "grammar",
+          "title": "Past Simple or Present Perfect?",
+          "instructions": "Use Past Simple for a finished time: yesterday, last week, in 2025. Use Present Perfect when the time is not finished or not important: already, yet, ever, never.",
+          "content": "Past Simple: “I sent the email yesterday.” The time is finished.\nPresent Perfect: “I have sent the email.” The result is important now.\nCompare: “We met on Tuesday.” / “We have met before.”\nForm: have / has + past participle. “I have finished.” “She has finished.”\nUse did for Past Simple questions: “Did you call?” Use have / has for Present Perfect questions: “Have you called?”",
+          "questions": [
+            { "id": "d1-tense-1", "prompt": "Choose the best sentence for a finished time: last Friday.", "options": ["I have checked the rota last Friday.", "I checked the rota last Friday.", "I check the rota last Friday."], "answer": 1 },
+            { "id": "d1-tense-2", "prompt": "Choose the best sentence when the result matters now.", "options": ["I have booked the meeting room.", "I booked the meeting room tomorrow.", "I book the meeting room yesterday."], "answer": 0 }
+          ]
+        },
+        {
+          "id": "words-in-use",
+          "kind": "vocabulary",
+          "title": "Work words you can use today",
+          "instructions": "Say each word, then find it in the reading and dialogue below.",
+          "content": "shift — a time when you work: “My shift starts at two.”\nrota — a work schedule: “The rota is on the wall.”\nmeeting — a planned work talk: “We have a meeting at ten.”\nupdate — new information: “Here is a short update.”\ncustomer — a person who buys something: “The customer needs help.”\ncolleague — a person you work with: “My colleague is busy.”\nbreak — a short rest: “I have a break at noon.”"
+        },
+        {
+          "id": "read-update",
+          "kind": "reading",
+          "title": "Reading: a short work update",
+          "instructions": "Read once for the idea. Read again and notice the time words and tense forms.",
+          "content": "Nora works at a small shop. Her shift started at 9:00 today. She checked the delivery list and helped two customers. She has already put the new boxes in the store room. Her colleague Sam has not arrived yet, so Nora is covering the front desk. They have a meeting at 3:00. Nora will give a short update there.",
+          "questions": [
+            { "id": "d1-read-1", "prompt": "What has Nora already done?", "options": ["She has put the boxes away.", "She will start her shift.", "She has arrived at the meeting."], "answer": 0 },
+            { "id": "d1-read-2", "prompt": "Why is Nora at the front desk?", "options": ["Her shift ended.", "Sam has not arrived yet.", "The shop is closed."], "answer": 1 }
+          ]
+        },
+        {
+          "id": "shift-dialogue",
+          "kind": "dialogue",
+          "title": "Dialogue: arranging a shift",
+          "instructions": "Read both roles. Then replace the words in brackets with your own time or day.",
+          "dialogueIntro": "First read slowly. Next, cover one line and say it from memory. Finally, change the bracket words.",
+          "dialogue": [
+            { "speaker": "Nora", "text": "Hi Sam. Can we change shifts on [Thursday]?" },
+            { "speaker": "Sam", "text": "Yes, I think so. What time do you need?" },
+            { "speaker": "Nora", "text": "I need the [morning] shift. I have an appointment." },
+            { "speaker": "Sam", "text": "That is fine. I can work in the morning, and you can take my [afternoon] shift." },
+            { "speaker": "Nora", "text": "Thank you. I have already checked the rota." }
+          ],
+          "patterns": ["Can we change shifts on [day]?", "I need the [morning / afternoon] shift.", "I have already checked the rota."]
+        }
+      ]
+    },
+    {
+      "id": "day-2",
+      "shortTitle": "People and time",
+      "title": "Day 2 — Talk about people, routines, and time",
+      "intro": "Use adverbs of frequency, possessives, object pronouns, and time prepositions in everyday situations.",
+      "activities": [
+        {
+          "id": "frequency-guide",
+          "kind": "grammar",
+          "title": "How often? Put the adverb in the right place",
+          "instructions": "With most verbs, put the adverb before the main verb. With be, put it after be.",
+          "content": "always (100%), usually, often, sometimes, hardly ever, never (0%).\n“I usually take the bus.” “They often call customers.”\n“I am always on time.” “The shop is never quiet on Saturday.”\nQuestions: “How often do you cook at home?” Answer: “I usually cook at home.”"
+        },
+        {
+          "id": "people-guide",
+          "kind": "daily-use",
+          "title": "Possessives and object pronouns",
+          "instructions": "Possessives show who something belongs to. Object pronouns receive the action.",
+          "content": "Possessives: my, your, his, her, its, our, their. “This is our meeting room.” “Her bag is on the chair.”\nObject pronouns: me, you, him, her, it, us, them. “Please call me.” “I can help her.” “We need them.”\nDo not say: “Please call I.” Say: “Please call me.”",
+          "questions": [
+            { "id": "d2-people-1", "prompt": "Choose the correct sentence.", "options": ["Please send the update to I.", "Please send the update to me.", "Please send the update to my."], "answer": 1 },
+            { "id": "d2-people-2", "prompt": "Choose the correct word: “Lina has a new phone. ___ phone is blue.”", "options": ["Her", "Him", "She"], "answer": 0 }
+          ]
+        },
+        {
+          "id": "time-guide",
+          "kind": "grammar",
+          "title": "At, on, and in for time",
+          "instructions": "Use the small time word that matches the time expression.",
+          "content": "at + clock times and night: at 8:30, at noon, at night.\non + days and dates: on Monday, on 6 May.\nin + months, years, seasons, and parts of the day: in July, in 2026, in winter, in the morning.\nFor duration: for two hours. Since a starting point: since Monday. “I have worked here since April.”",
+          "questions": [
+            { "id": "d2-time-1", "prompt": "Choose the best time phrase.", "options": ["in Monday at 9:00", "on Monday at 9:00", "at Monday in 9:00"], "answer": 1 },
+            { "id": "d2-time-2", "prompt": "Choose the correct word: “I take a break ___ the afternoon.”", "options": ["in", "on", "at"], "answer": 0 }
+          ]
+        },
+        {
+          "id": "listen-appointment",
+          "kind": "listening",
+          "title": "Listen-style practice: making an appointment",
+          "instructions": "Read the script aloud with a partner, or read one role and pause before the answer. Then answer the questions.",
+          "dialogue": [
+            { "speaker": "Receptionist", "text": "Good morning. City Clinic. How can I help you?" },
+            { "speaker": "Leo", "text": "Hello. I would like to make an appointment for my sister." },
+            { "speaker": "Receptionist", "text": "Certainly. Is she free on Tuesday afternoon?" },
+            { "speaker": "Leo", "text": "She usually works then. Can she come at 10:00 on Wednesday?" },
+            { "speaker": "Receptionist", "text": "Yes. I have booked it for her." }
+          ],
+          "questions": [
+            { "id": "d2-listen-1", "prompt": "Who is the appointment for?", "options": ["Leo's sister", "The receptionist", "Leo's colleague"], "answer": 0 },
+            { "id": "d2-listen-2", "prompt": "When is the appointment?", "options": ["Tuesday afternoon", "Wednesday at 10:00", "Wednesday night"], "answer": 1 }
+          ]
+        },
+        {
+          "id": "help-dialogue",
+          "kind": "dialogue",
+          "title": "Dialogue: asking for help at work",
+          "instructions": "Practise the polite request. Change the task, person, or time.",
+          "dialogue": [
+            { "speaker": "Mia", "text": "Excuse me, can you help me with this customer?" },
+            { "speaker": "Omar", "text": "Of course. What does she need?" },
+            { "speaker": "Mia", "text": "She needs her order today, but I cannot find it." },
+            { "speaker": "Omar", "text": "I can check it for you. Please give me her name." },
+            { "speaker": "Mia", "text": "Thank you. I really appreciate it." }
+          ],
+          "patterns": ["Can you help me with [this task]?", "What does [he / she] need?", "I can check it for you."]
+        }
+      ]
+    },
+    {
+      "id": "day-3",
+      "shortTitle": "Plans and solutions",
+      "title": "Day 3 — Make plans and solve small problems",
+      "intro": "Use modal verbs and future language for appointments, shopping, travel, and home life.",
+      "activities": [
+        {
+          "id": "modal-guide",
+          "kind": "grammar",
+          "title": "Can, should, must, and have to",
+          "instructions": "These small verbs help you ask, offer, advise, and talk about rules.",
+          "content": "can: ability, offer, or permission. “I can carry that.” “Can I pay by card?”\nshould: friendly advice. “You should leave early.”\nmust: an important rule. “You must show your ticket.”\nhave to: a necessary action. “I have to finish this today.”\nAfter can, should, and must, use the base verb: “She can come.” Not “She can comes.”"
+        },
+        {
+          "id": "future-guide",
+          "kind": "daily-use",
+          "title": "Future language for real plans",
+          "instructions": "Use the pattern that feels natural for the situation.",
+          "content": "be going to + verb: a plan. “I am going to visit my aunt this weekend.”\nwill + verb: a quick decision or offer. “I will call the hotel.”\nPresent Continuous: an arranged plan. “We are meeting at the station at six.”\nUseful questions: “Are you free on Friday?” “What are you going to do after work?”"
+        },
+        {
+          "id": "travel-reading",
+          "kind": "reading",
+          "title": "Reading: a small travel plan",
+          "instructions": "Read for the plan. Then find one example of going to, will, and must.",
+          "content": "Eva and her brother are travelling to another city on Saturday. They are meeting at the station at 7:15. Eva is going to buy snacks before the train arrives. Her brother has already bought the tickets. Eva will check the platform number when they arrive. They must take their bags with them and should leave home early because the bus is often late.",
+          "questions": [
+            { "id": "d3-read-1", "prompt": "What has Eva's brother already done?", "options": ["He has bought the tickets.", "He will check the platform.", "He is buying snacks."], "answer": 0 },
+            { "id": "d3-read-2", "prompt": "Why should they leave home early?", "options": ["The train is often late.", "The bus is often late.", "The station is closed."], "answer": 1 }
+          ]
+        },
+        {
+          "id": "write-plan",
+          "kind": "writing",
+          "title": "Write a simple plan",
+          "instructions": "Write 4–5 short sentences about a real or invented plan. Include one time phrase, one future form, and one modal verb.",
+          "content": "Starter ideas: “On Saturday, I am going to…” “I will…” “I have to…” “I should…”"
+        },
+        {
+          "id": "speak-home",
+          "kind": "speaking",
+          "title": "Speak: a home-life task",
+          "instructions": "Say a short answer aloud: What do you have to do at home this evening? What can another person help you with? Add a time phrase."
+        },
+        {
+          "id": "shopping-dialogue",
+          "kind": "dialogue",
+          "title": "Dialogue: shopping and making a plan",
+          "instructions": "Try the customer role, then the assistant role. Change the item and the day.",
+          "dialogue": [
+            { "speaker": "Customer", "text": "Hi. Can I return this jacket, please?" },
+            { "speaker": "Assistant", "text": "Yes, you can. Do you have the receipt?" },
+            { "speaker": "Customer", "text": "Yes, I have it here. I bought it on Monday." },
+            { "speaker": "Assistant", "text": "Thank you. We can give you a different size, or we can return your money." },
+            { "speaker": "Customer", "text": "I will try a larger size, please." }
+          ],
+          "patterns": ["Can I [return / change] this, please?", "Do you have [the receipt]?", "I will try [a larger size]."]
+        },
+        {
+          "id": "travel-dialogue",
+          "kind": "dialogue",
+          "title": "Dialogue: travel and an appointment",
+          "instructions": "Repeat the dialogue. Then replace the destination, day, and time with your own ideas.",
+          "dialogue": [
+            { "speaker": "Ana", "text": "Are you free on Friday morning?" },
+            { "speaker": "Ben", "text": "I have an appointment at 10:00, but I am free after noon." },
+            { "speaker": "Ana", "text": "Great. We are going to meet at the station at 1:00." },
+            { "speaker": "Ben", "text": "Good idea. I will bring the tickets. Should we take a taxi?" },
+            { "speaker": "Ana", "text": "Yes, we should. The bus is usually slow in the afternoon." }
+          ],
+          "patterns": ["Are you free on [day / time]?", "I have an appointment at [time].", "We are going to meet at [place].", "Should we [take a taxi]? "]
+        }
+      ]
+    }
+  ]
+}

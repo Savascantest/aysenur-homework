@@ -1,10 +1,10 @@
 export const AYSENUR_ARCHITECTURE_V1_EFFECTIVE_DATE = '2026-09-14';
-export const AYSENUR_POLICY_VERSION = 'aysenur-english-only-three-day@1';
-export const AYSENUR_TEMPLATE_CONTRACT_VERSION = 'aysenur-three-day-multiskill@1';
-export const AYSENUR_ASSESSMENT_POLICY_VERSION = 'aysenur-ten-question-feedback@1';
-export const AYSENUR_FINAL_QUIZ_QUESTION_COUNT = 10;
+export const AYSENUR_POLICY_VERSION = 'aysenur-english-only-dialogue-revision@2';
+export const AYSENUR_TEMPLATE_CONTRACT_VERSION = 'aysenur-three-day-dialogue-practice@2';
+export const AYSENUR_ASSESSMENT_POLICY_VERSION = 'aysenur-no-final-quiz@2';
+export const AYSENUR_FINAL_QUIZ_QUESTION_COUNT = 0;
 export const AYSENUR_SCORE_THRESHOLD = null;
-const REQUIRED_KINDS = ['lesson-notes','grammar','vocabulary','daily-use','reading','listening','writing','speaking'];
+const REQUIRED_KINDS = ['lesson-notes','grammar','vocabulary','daily-use','reading','listening','writing','speaking','dialogue'];
 const TURKISH_PATTERNS = [/\blütfen\b/i,/\bcevap\b/i,/\bdoğru\b/i,/\byanlış\b/i,/\böğretmen\b/i,/\bders\b/i];
 
 export const isFutureAysenurPackage = (pkg) => typeof pkg?.date === 'string' && pkg.date >= AYSENUR_ARCHITECTURE_V1_EFFECTIVE_DATE;
@@ -59,10 +59,8 @@ export function findAysenurArchitectureV1Violations(pkg) {
     });
     REQUIRED_KINDS.filter((kind) => !kinds.has(kind)).forEach((kind) => violations.push(`activities: missing required function ${kind}`));
   }
-  const quiz = pkg.finalQuiz;
-  if (!Array.isArray(quiz?.questions) || quiz.questions.length !== AYSENUR_FINAL_QUIZ_QUESTION_COUNT) violations.push(`finalQuiz.questions: must contain exactly ${AYSENUR_FINAL_QUIZ_QUESTION_COUNT} questions`);
-  else { addQuestions(quiz.questions, 'finalQuiz.questions', violations); addDistribution(quiz.questions, 'finalQuiz.questions', violations); }
-  if (pkg.languageException?.authorized !== true) englishTextViolations({ title: pkg.title, subtitle: pkg.subtitle, days: pkg.days, finalQuiz: pkg.finalQuiz }, 'learnerContent', violations);
+  if (Object.hasOwn(pkg, 'finalQuiz')) violations.push('finalQuiz: is not allowed; use guided dialogue practice instead');
+  if (pkg.languageException?.authorized !== true) englishTextViolations({ title: pkg.title, subtitle: pkg.subtitle, days: pkg.days }, 'learnerContent', violations);
   return violations;
 }
 export function assertAysenurArchitectureV1Package(pkg, label = 'homework package') { const violations = findAysenurArchitectureV1Violations(pkg); if (violations.length) throw new Error(`${label} violates Ayşenur Architecture v1: ${violations.join(', ')}`); }

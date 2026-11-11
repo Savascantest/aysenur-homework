@@ -1,12 +1,12 @@
 # Ayşenur’s English Workspace
 
-A three-day homework cycle for an adult English learner. The approved Homework 1 visual system is retained: serif task headings, slate header, rounded section cards, colour-coded skills, hints, retry feedback, progress and a review bank. No other learner’s content or profile is included.
+A friendly three-day A1 grammar-revision cycle for an adult English learner. It uses short explanations, practical vocabulary, supportive retry feedback, browser-local progress, and repeatable dialogue simulations. No other learner’s content or profile is included.
 
 ## Current archive state
 
-No homework has been published yet. The platform intentionally supports an empty archive; it never presents sample or placeholder homework as learner work.
+The local revision package is ready for review. It has not been committed, pushed, published, or deployed.
 
-Future real packages are data-driven three-day packages placed under `public/homeworks/<package-id>/homework.json`. They use the approved Architecture v1 metadata, a privacy-safe opaque ID, the multiskill section family, and a 10-question feedback-only Final Quiz. Lesson evidence and explicit teacher instruction determine content; this repository contains no lesson source data.
+Revision packages are data-driven three-day packages placed under `public/homeworks/<package-id>/homework.json`. They use the approved Architecture v2 metadata, a privacy-safe opaque ID, the multiskill section family, and guided dialogue practice. There is no final quiz or exam. Lesson evidence and explicit teacher instruction determine content; this repository contains no lesson source data.
 
 ## Local work and contact
 Answers, drafts, completion and review items stay in the current browser, separated by stable package and activity IDs. Browser storage is not an account or backup. No backend, submissions, analytics, automatic contact, or LearnerState update exists.

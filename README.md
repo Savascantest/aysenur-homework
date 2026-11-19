@@ -8,6 +8,10 @@ The local revision package is ready for review. It has not been committed, pushe
 
 Revision packages are data-driven three-day packages placed under `public/homeworks/<package-id>/homework.json`. They use the approved Architecture v2 metadata, a privacy-safe opaque ID, the multiskill section family, and guided dialogue practice. There is no final quiz or exam. Lesson evidence and explicit teacher instruction determine content; this repository contains no lesson source data.
 
+## Vocabulary register
+
+`content/vocabulary-master.json` is the source-only register for the ten vocabulary items assigned to each homework. It is deliberately not included in the student-facing website bundle. Because this repository is public, it is not a private file; it is only hidden from the learner interface.
+
 ## Local work and contact
 Answers, drafts, completion and review items stay in the current browser, separated by stable package and activity IDs. Browser storage is not an account or backup. No backend, submissions, analytics, automatic contact, or LearnerState update exists.
 

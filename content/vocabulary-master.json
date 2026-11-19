@@ -1,0 +1,25 @@
+{
+  "purpose": "Source-only vocabulary register. It is not rendered by the student-facing website and prevents term repetition across homework packs.",
+  "entries": [
+    { "lessonId": "2026-11-08-k4m7p2r8t5w9", "term": "agenda", "translation": "gündem" },
+    { "lessonId": "2026-11-08-k4m7p2r8t5w9", "term": "deadline", "translation": "son tarih" },
+    { "lessonId": "2026-11-08-k4m7p2r8t5w9", "term": "update", "translation": "güncelleme" },
+    { "lessonId": "2026-11-08-k4m7p2r8t5w9", "term": "colleague", "translation": "iş arkadaşı" },
+    { "lessonId": "2026-11-08-k4m7p2r8t5w9", "term": "customer", "translation": "müşteri" },
+    { "lessonId": "2026-11-08-k4m7p2r8t5w9", "term": "schedule", "translation": "program" },
+    { "lessonId": "2026-11-08-k4m7p2r8t5w9", "term": "confirm", "translation": "onaylamak" },
+    { "lessonId": "2026-11-08-k4m7p2r8t5w9", "term": "prepare", "translation": "hazırlamak" },
+    { "lessonId": "2026-11-08-k4m7p2r8t5w9", "term": "report", "translation": "rapor" },
+    { "lessonId": "2026-11-08-k4m7p2r8t5w9", "term": "feedback", "translation": "geri bildirim" },
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "entrance", "translation": "giriş" },
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "exit", "translation": "çıkış" },
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "location", "translation": "konum" },
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "direction", "translation": "yol tarifi" },
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "nearby", "translation": "yakında" },
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "corner", "translation": "köşe" },
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "stairs", "translation": "merdivenler" },
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "lift", "translation": "asansör" },
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "floor", "translation": "kat" },
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "reception", "translation": "danışma" }
+  ]
+}

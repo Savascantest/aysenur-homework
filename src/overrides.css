@@ -1,0 +1,18 @@
+.flash-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flashcard .back {
+  display: none;
+  transform: none;
+}
+
+.flashcard.flipped .front {
+  display: none;
+}
+
+.flashcard.flipped .back {
+  display: flex;
+  transform: none;
+}

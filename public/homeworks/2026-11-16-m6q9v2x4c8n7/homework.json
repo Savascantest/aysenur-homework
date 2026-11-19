@@ -1,0 +1,168 @@
+{
+  "id": "2026-11-16-m6q9v2x4c8n7",
+  "date": "2026-11-16",
+  "title": "Places and Clear Instructions",
+  "subtitle": "A practical English revision pack for describing places and giving simple directions.",
+  "policyVersion": "aysenur-english-only-dialogue-revision@2",
+  "templateContractVersion": "aysenur-three-day-dialogue-practice@2",
+  "assessmentPolicyVersion": "aysenur-no-final-quiz@2",
+  "days": [
+    {
+      "id": "day-1",
+      "shortTitle": "Places",
+      "title": "Day 1 — Describe where things are",
+      "intro": "Use simple place words to say where people and things are.",
+      "activities": [
+        {
+          "id": "place-start",
+          "kind": "lesson-notes",
+          "title": "A place phrase adds useful detail",
+          "instructions": "Read each sentence aloud. Point to an object near you if you can.",
+          "content": "Use in for a space: “The keys are in the bag.”\nUse on for a surface: “The phone is on the table.”\nUse under for a lower position: “The shoes are under the chair.”\nUse next to for a close position: “The bank is next to the café.”\nUse between for a middle position: “The shop is between the pharmacy and the station.”\nUse opposite for a place across from another place: “The bus stop is opposite the park.”"
+        },
+        {
+          "id": "place-grammar",
+          "kind": "grammar",
+          "title": "Place prepositions: in, on, under, next to, between",
+          "instructions": "Choose the best place word. Use the sentence picture in your mind.",
+          "content": "A useful question is: “Where is it?” A useful answer starts with: “It is…”\n“Where is the notebook?” “It is on the desk.”\n“Where is the station?” “It is next to the museum.”",
+          "questions": [
+            { "id": "p1-place-1", "prompt": "Choose the best answer: “The cup is ___ the table.”", "options": ["on", "between", "opposite"], "answer": 0 },
+            { "id": "p1-place-2", "prompt": "Choose the best answer: “The cat is ___ the chair.”", "options": ["under", "on", "next to"], "answer": 0 }
+          ]
+        },
+        {
+          "id": "place-words",
+          "kind": "vocabulary",
+          "title": "Useful words for places",
+          "instructions": "Read the words. You will meet them again in the reading and dialogue.",
+          "content": "entrance — where you go in\nexit — where you go out\ncorner — where two streets meet\nstairs — steps between floors\nlift — a small room that moves between floors\nstation — a place for trains or buses\npharmacy — a shop for medicine\nreceipt — a paper that shows what you bought"
+        },
+        {
+          "id": "place-reading",
+          "kind": "reading",
+          "title": "Reading: finding a place in a building",
+          "instructions": "Read once. Then find the place words in the text.",
+          "content": "Ava is in a large building for the first time. The entrance is opposite the bus stop. Inside, the lift is next to the stairs. Ava needs the office on the second floor. The office is between a small café and a pharmacy. Her appointment note is in her bag, and her phone is on the desk in the waiting area.",
+          "questions": [
+            { "id": "p1-read-1", "prompt": "Where is the lift?", "options": ["Next to the stairs", "Under the café", "Between the bus stops"], "answer": 0 },
+            { "id": "p1-read-2", "prompt": "Where is Ava's phone?", "options": ["In her bag", "On a desk in the waiting area", "Opposite the pharmacy"], "answer": 1 }
+          ]
+        },
+        {
+          "id": "place-dialogue",
+          "kind": "dialogue",
+          "title": "Dialogue: asking where something is",
+          "instructions": "Read both roles. Then change the place or object in [brackets].",
+          "dialogue": [
+            { "speaker": "Ava", "text": "Excuse me. Where is the [lift], please?" },
+            { "speaker": "Guide", "text": "It is next to the stairs." },
+            { "speaker": "Ava", "text": "Is it near the [entrance]?" },
+            { "speaker": "Guide", "text": "Yes. It is opposite the café." },
+            { "speaker": "Ava", "text": "Thank you for your help." }
+          ],
+          "patterns": ["Where is the [place], please?", "It is next to [the stairs].", "Is it near [the entrance]?"]
+        }
+      ]
+    },
+    {
+      "id": "day-2",
+      "shortTitle": "Instructions",
+      "title": "Day 2 — Give clear instructions",
+      "intro": "Use the imperative to tell someone what to do in a friendly, clear way.",
+      "activities": [
+        {
+          "id": "imperative-grammar",
+          "kind": "grammar",
+          "title": "The imperative: start with the verb",
+          "instructions": "Read the instructions. Notice that the subject “you” is not necessary.",
+          "content": "Use the base verb: “Open the page.” “Read the question.” “Write one sentence.”\nFor a negative instruction, use do not / don't: “Do not close the page.” “Don't forget your notes.”\nAdd please to sound polite: “Please check your answer.”\nUse first, then, and finally to make the order clear."
+        },
+        {
+          "id": "platform-steps",
+          "kind": "daily-use",
+          "title": "Use the learning platform step by step",
+          "instructions": "These are simple practice steps. Read them in order, then say them aloud.",
+          "content": "First, open the revision pack.\nThen, choose one day.\nRead the grammar guide and the examples.\nChoose an answer and read the feedback.\nPractise a dialogue again with new words.\nFinally, write a short response. Your written work is for review."
+        },
+        {
+          "id": "imperative-listening",
+          "kind": "listening",
+          "title": "Listen-style practice: simple directions",
+          "instructions": "Read the script aloud with a partner, or pause after each instruction and repeat it.",
+          "dialogue": [
+            { "speaker": "Mia", "text": "Please come in through the main entrance." },
+            { "speaker": "Omar", "text": "Okay. What do I do next?" },
+            { "speaker": "Mia", "text": "Go up the stairs. Then turn left at the corner." },
+            { "speaker": "Omar", "text": "Is the room near the lift?" },
+            { "speaker": "Mia", "text": "Yes. Do not use the lift today. The room is next to it." }
+          ],
+          "questions": [
+            { "id": "p2-listen-1", "prompt": "What should Omar do after he goes up the stairs?", "options": ["Turn left", "Use the lift", "Leave the building"], "answer": 0 },
+            { "id": "p2-listen-2", "prompt": "Where is the room?", "options": ["Under the stairs", "Next to the lift", "Opposite the entrance"], "answer": 1 }
+          ]
+        },
+        {
+          "id": "imperative-dialogue",
+          "kind": "dialogue",
+          "title": "Dialogue: helping someone use a page",
+          "instructions": "Practise the helper role. Change the action in [brackets].",
+          "dialogue": [
+            { "speaker": "Learner", "text": "I cannot find the grammar practice." },
+            { "speaker": "Helper", "text": "First, choose Day 2." },
+            { "speaker": "Learner", "text": "I can see it. What next?" },
+            { "speaker": "Helper", "text": "Read the examples. Then [choose an answer]." },
+            { "speaker": "Learner", "text": "Thank you. I will practise the dialogue too." }
+          ],
+          "patterns": ["First, [choose Day 2].", "Then, [read the examples].", "Do not [close the page]."]
+        }
+      ]
+    },
+    {
+      "id": "day-3",
+      "shortTitle": "Use it",
+      "title": "Day 3 — Practise, write, and repeat",
+      "intro": "Use place words and clear instructions together in a short everyday situation.",
+      "activities": [
+        {
+          "id": "place-and-action",
+          "kind": "reading",
+          "title": "Reading: a short shopping task",
+          "instructions": "Read the task. Notice the place prepositions and instructions.",
+          "content": "Noah is at a small shop. The basket is near the entrance. His shopping list is in his phone. First, take a basket. Then, find the bread on the shelf next to the milk. The receipt is on the counter after you pay. Do not leave your bag under the chair near the exit.",
+          "questions": [
+            { "id": "p3-read-1", "prompt": "Where is the bread?", "options": ["On a shelf next to the milk", "Under the counter", "In the basket"], "answer": 0 },
+            { "id": "p3-read-2", "prompt": "What should Noah not do?", "options": ["Take a basket", "Leave his bag under a chair", "Pay at the counter"], "answer": 1 }
+          ]
+        },
+        {
+          "id": "write-places",
+          "kind": "writing",
+          "title": "Write clear instructions",
+          "instructions": "Write 4 short instructions for an invented place. Use at least two place words and two imperative verbs. This written work is for review.",
+          "content": "Starter ideas: “Put the book on…” “Go to…” “Turn…” “Do not…”"
+        },
+        {
+          "id": "speak-directions",
+          "kind": "speaking",
+          "title": "Speak: give a simple direction",
+          "instructions": "Say four short instructions aloud. Choose an everyday place, such as a shop, room, station, or home. Use first, then, and finally."
+        },
+        {
+          "id": "repeat-dialogue",
+          "kind": "dialogue",
+          "title": "Dialogue: a useful everyday direction",
+          "instructions": "Say both roles. Then replace the location and object in [brackets].",
+          "dialogue": [
+            { "speaker": "Rina", "text": "Can you tell me where the [pharmacy] is?" },
+            { "speaker": "Kai", "text": "Yes. Go straight ahead and turn right at the corner." },
+            { "speaker": "Rina", "text": "Is it near the [station]?" },
+            { "speaker": "Kai", "text": "Yes. It is between the station and the café." },
+            { "speaker": "Rina", "text": "Great. Thank you." }
+          ],
+          "patterns": ["Can you tell me where [the pharmacy] is?", "Go straight ahead.", "Turn [right / left] at the corner.", "It is between [A] and [B]."]
+        }
+      ]
+    }
+  ]
+}

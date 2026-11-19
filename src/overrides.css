@@ -16,3 +16,39 @@
   display: flex;
   transform: none;
 }
+
+.exercise-note,
+.attempt-counter,
+.answer-help,
+.answer-key {
+  font-size: .9rem;
+  color: #5d6f61;
+}
+
+.cloze-text {
+  margin: 18px 0;
+  padding-left: 28px;
+  line-height: 2.2;
+}
+
+.cloze-text li {
+  padding: 7px 0 7px 4px;
+}
+
+.cloze-actions {
+  flex-wrap: wrap;
+}
+
+.check-button:disabled {
+  cursor: not-allowed;
+  opacity: .58;
+}
+
+.blank:disabled {
+  cursor: default;
+}
+
+.answer-key {
+  font-weight: 600;
+  color: #276343;
+}

@@ -52,3 +52,9 @@
   font-weight: 600;
   color: #276343;
 }
+
+.rule-feedback {
+  margin: 7px 0 0;
+  color: #376b4f;
+  font-size: .88rem;
+}

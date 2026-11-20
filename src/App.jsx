@@ -10,29 +10,29 @@ const tabs = [
 const storage = window.localStorage;
 const freshProgress = () => ({ completed: {}, answers: {}, drafts: {}, flips: {}, cloze: {}, dialogueSteps: {}, orders: {}, matches: {} });
 
-function Result({ correct, waiting = false }) { if (waiting) return null; return <p className={correct ? 'result good' : 'result retry'}>{correct ? 'Good work — that fits.' : 'Try again. Read the clue and look for the detail that helps.'}</p>; }
+function Result({ correct, waiting = false, explanation }) { if (waiting) return null; return <>{<p className={correct ? 'result good' : 'result retry'}>{correct ? 'Good work — that fits.' : 'Try again. Read the clue and look for the detail that helps.'}</p>}{correct && explanation && <p className="rule-feedback">Why this works: {explanation}</p>}</>; }
 
 function ChoiceQuestion({ question, value, onAnswer }) {
   const answer = value?.answer;
-  return <article className="practice-question"><p className="question-type">{question.label || 'Choose the best answer'}</p><h4>{question.prompt}</h4><div className="option-grid">{question.options.map((option, index) => <button className={answer === index ? 'option selected' : 'option'} onClick={() => onAnswer(index)} key={option}>{option}</button>)}</div>{answer !== undefined && <Result correct={answer === question.answer} />}</article>;
+  return <article className="practice-question"><p className="question-type">{question.label || 'Choose the best answer'}</p><h4>{question.prompt}</h4><div className="option-grid">{question.options.map((option, index) => <button className={answer === index ? 'option selected' : 'option'} onClick={() => onAnswer(index)} key={option}>{option}</button>)}</div>{answer !== undefined && <Result correct={answer === question.answer} explanation={question.explanation} />}</article>;
 }
 
 function FillQuestion({ question, value = {}, onChange }) {
   const checked = value.checked;
   const correct = value.text?.trim().toLowerCase() === question.answer.toLowerCase();
-  return <article className="practice-question"><p className="question-type">Fill in the blank</p><h4>{question.prompt}</h4><div className="fill-row"><input value={value.text || ''} onChange={(event) => onChange({ ...value, text: event.target.value, checked: false })} placeholder="Type one word or phrase" /><button onClick={() => onChange({ ...value, checked: true })}>Check</button></div><Result correct={correct} waiting={!checked} /></article>;
+  return <article className="practice-question"><p className="question-type">Fill in the blank</p><h4>{question.prompt}</h4><div className="fill-row"><input value={value.text || ''} onChange={(event) => onChange({ ...value, text: event.target.value, checked: false })} placeholder="Type one word or phrase" /><button onClick={() => onChange({ ...value, checked: true })}>Check</button></div><Result correct={correct} waiting={!checked} explanation={question.explanation} /></article>;
 }
 
 function OrderQuestion({ question, value = {}, onChange }) {
   const chosen = value.words || [];
   const available = question.words.filter((word, index) => !chosen.some((picked, pickedIndex) => picked === word && pickedIndex === index));
   const correct = chosen.join(' ') === question.answer.join(' ');
-  return <article className="practice-question"><p className="question-type">Put the words in order</p><h4>{question.prompt}</h4><div className="sentence-build">{chosen.length ? chosen.map((word, index) => <button className="word-chip chosen" onClick={() => onChange({ ...value, words: chosen.filter((_, wordIndex) => wordIndex !== index), checked: false })} key={`${word}-${index}`}>{word}</button>) : <span>Tap words to build the sentence.</span>}</div><div className="word-bank">{available.map((word, index) => <button className="word-chip" onClick={() => onChange({ ...value, words: [...chosen, word], checked: false })} key={`${word}-${index}`}>{word}</button>)}</div><button className="check-button" onClick={() => onChange({ ...value, checked: true })}>Check sentence</button><Result correct={correct} waiting={!value.checked} /></article>;
+  return <article className="practice-question"><p className="question-type">Put the words in order</p><h4>{question.prompt}</h4><div className="sentence-build">{chosen.length ? chosen.map((word, index) => <button className="word-chip chosen" onClick={() => onChange({ ...value, words: chosen.filter((_, wordIndex) => wordIndex !== index), checked: false })} key={`${word}-${index}`}>{word}</button>) : <span>Tap words to build the sentence.</span>}</div><div className="word-bank">{available.map((word, index) => <button className="word-chip" onClick={() => onChange({ ...value, words: [...chosen, word], checked: false })} key={`${word}-${index}`}>{word}</button>)}</div><button className="check-button" onClick={() => onChange({ ...value, checked: true })}>Check sentence</button><Result correct={correct} waiting={!value.checked} explanation={question.explanation} /></article>;
 }
 
 function MatchQuestion({ question, value = {}, onChange }) {
   const correct = question.pairs.every((pair) => value[pair.left] === pair.right);
-  return <article className="practice-question"><p className="question-type">Match the meaning</p><h4>{question.prompt}</h4><div className="match-list">{question.pairs.map((pair) => <label key={pair.left}><span>{pair.left}</span><select value={value[pair.left] || ''} onChange={(event) => onChange({ ...value, [pair.left]: event.target.value, checked: false })}><option value="">Choose…</option>{question.pairs.map((option) => <option value={option.right} key={option.right}>{option.right}</option>)}</select></label>)}</div><button className="check-button" onClick={() => onChange({ ...value, checked: true })}>Check matches</button><Result correct={correct} waiting={!value.checked} /></article>;
+  return <article className="practice-question"><p className="question-type">Match the meaning</p><h4>{question.prompt}</h4><div className="match-list">{question.pairs.map((pair) => <label key={pair.left}><span>{pair.left}</span><select value={value[pair.left] || ''} onChange={(event) => onChange({ ...value, [pair.left]: event.target.value, checked: false })}><option value="">Choose…</option>{question.pairs.map((option) => <option value={option.right} key={option.right}>{option.right}</option>)}</select></label>)}</div><button className="check-button" onClick={() => onChange({ ...value, checked: true })}>Check matches</button><Result correct={correct} waiting={!value.checked} explanation={question.explanation} /></article>;
 }
 
 function Questions({ questions = [], progress, update, namespace }) {

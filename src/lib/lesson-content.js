@@ -1,7 +1,7 @@
-const choice = (id, prompt, options, answer, label) => ({ id, prompt, options, answer, label });
-const fill = (id, prompt, answer) => ({ id, type: 'fill', prompt, answer });
-const order = (id, prompt, words, answer) => ({ id, type: 'order', prompt, words, answer });
-const match = (id, prompt, pairs) => ({ id, type: 'match', prompt, pairs });
+const choice = (id, prompt, options, answer, label, explanation) => ({ id, prompt, options, answer, label, explanation });
+const fill = (id, prompt, answer, explanation) => ({ id, type: 'fill', prompt, answer, explanation });
+const order = (id, prompt, words, answer, explanation) => ({ id, type: 'order', prompt, words, answer, explanation });
+const match = (id, prompt, pairs, explanation) => ({ id, type: 'match', prompt, pairs, explanation });
 const conversation = (id, title, scenario, partner, turns) => ({ id, title, scenario, partner, turns });
 
 const businessVocabulary = [
@@ -78,20 +78,58 @@ const placeDialogues = [
   ])
 ];
 
-const finalGroups = (prefix, words) => [
-  { id: 'choice', label: '01–03 · CHOOSE', title: 'Real-use choices', questions: [
-    choice(`${prefix}-c1`, 'Choose the most natural sentence.', ['Please confirm the meeting time.', 'Please confirms the meeting time.', 'Please confirmed the meeting time.'], 0),
-    choice(`${prefix}-c2`, 'Choose the best reply to: “Where is reception?”', ['It is next to the entrance.', 'It is next the entrance.', 'It is on next to the entrance.'], 0),
-    choice(`${prefix}-c3`, 'Choose the best sentence for a plan.', ['I will prepare the report this afternoon.', 'I prepared the report this afternoon tomorrow.', 'I will prepares the report this afternoon.'], 0)
+const finalGroups = (topic) => topic === 'business' ? [
+  { id: 'choice', label: '01–03 · CHOOSE', title: 'Choose the message that fits', questions: [
+    choice('business-c1', 'You need a colleague to check whether she can join tomorrow’s call. Which message would you send?', ['Please confirm whether you can join tomorrow’s call.', 'Please confirmed whether you can join tomorrow’s call.', 'Please confirming whether you can join tomorrow’s call.'], 0, undefined, 'After “please”, use the base verb. “Please confirm” is a clear, polite request.'),
+    choice('business-c2', 'At 3 pm, your manager asks whether the first part of the report is ready. Which reply fits best?', ['I have finished the first part.', 'I finished the first part tomorrow.', 'I have finish the first part.'], 0, undefined, '“Have finished” shows a completed action with a result that matters now.'),
+    choice('business-c3', 'Your colleague asks when the customer sent the question. Which reply is natural?', ['They sent it yesterday afternoon.', 'They have sent it yesterday afternoon.', 'They send it yesterday afternoon.'], 0, undefined, '“Yesterday afternoon” is a finished time, so use the Past Simple: “sent”.')
   ] },
-  { id: 'fill', label: '04–06 · FILL', title: 'Use the right word', questions: [fill(`${prefix}-f1`, `Please _____ the time by email.`, 'confirm'), fill(`${prefix}-f2`, `The lift is _____ to reception.`, 'next'), fill(`${prefix}-f3`, `We need to _____ the presentation.`, 'prepare')] },
-  { id: 'order', label: '07–09 · BUILD', title: 'Build clear sentences', questions: [
-    order(`${prefix}-o1`, 'Make an instruction.', ['Please', 'check', 'the', 'agenda.'], ['Please', 'check', 'the', 'agenda.']),
-    order(`${prefix}-o2`, 'Make a direction.', ['Turn', 'left', 'at', 'the', 'corner.'], ['Turn', 'left', 'at', 'the', 'corner.']),
-    order(`${prefix}-o3`, 'Make a work update.', ['I', 'have', 'finished', 'the', 'report.'], ['I', 'have', 'finished', 'the', 'report.'])
+  { id: 'fill', label: '04–06 · COMPLETE', title: 'Finish useful messages', questions: [
+    fill('business-f1', 'Email to a colleague: “Please _____ the meeting time before 4 pm.”', 'confirm', 'Use the base verb after “please” to make a polite request.'),
+    fill('business-f2', 'Team note: “We need to _____ the slides before the presentation.”', 'prepare', 'After “need to”, use the base form of the verb: “prepare”.'),
+    fill('business-f3', 'Project message: “I will send a short _____ after lunch.”', 'update', 'An “update” is new information about a task or situation.')]
+  },
+  { id: 'order', label: '07–09 · BUILD', title: 'Build messages people would send', questions: [
+    order('business-o1', 'Put together a reminder before a meeting.', ['Please', 'check', 'the', 'agenda', 'before', 'the', 'meeting.'], ['Please', 'check', 'the', 'agenda', 'before', 'the', 'meeting.'], 'A polite instruction starts with “Please” followed by the base verb “check”.'),
+    order('business-o2', 'Put together a progress update for your manager.', ['I', 'have', 'finished', 'the', 'first', 'section.'], ['I', 'have', 'finished', 'the', 'first', 'section.'], '“Have finished” reports a completed action that is relevant now.'),
+    order('business-o3', 'Put together a reply about yesterday’s email.', ['I', 'sent', 'the', 'reply', 'yesterday.'], ['I', 'sent', 'the', 'reply', 'yesterday.'], 'A finished time such as “yesterday” goes with the Past Simple: “sent”.')]
+  },
+  { id: 'match', label: '10–12 · MATCH', title: 'Match the situation to the message', questions: [
+    match('business-m1', 'Match each situation to the message that solves it.', [{ left: 'The meeting topics are not clear.', right: 'Please check the agenda.' }, { left: 'The client is waiting for news.', right: 'I will send a short update.' }]),
+    match('business-m2', 'Match each situation to the useful word.', [{ left: 'Finish the task by Friday.', right: 'deadline' }, { left: 'A person on your work team.', right: 'colleague' }]),
+    match('business-m3', 'Match each time clue to the message.', [{ left: 'The action happened yesterday.', right: 'I sent the email yesterday.' }, { left: 'The result matters now.', right: 'I have sent the email.' }], 'Finished times use Past Simple; a present result can use Present Perfect.')]
+  },
+  { id: 'reply', label: '13–15 · REPLY', title: 'Pick the reply that helps', questions: [
+    choice('business-r1', 'A colleague says: “Can you send the report today?”', ['Yes, I will send it before 5 pm.', 'Yes, I sent it tomorrow.', 'Yes, I will sends it before 5 pm.'], 0, undefined, 'Use “will + base verb” for a decision or promise about the future.'),
+    choice('business-r2', 'A manager asks: “Have you checked the schedule?”', ['Yes, I have checked it, and everyone is free.', 'Yes, I have check it, and everyone is free.', 'Yes, I checked it tomorrow.'], 0, undefined, 'Present Perfect uses “have + past participle”: “have checked”.'),
+    choice('business-r3', 'A customer asks for confirmation. Which closing is best?', ['I will confirm the details by email.', 'I will confirmed the details by email.', 'I confirming the details by email.'], 0, undefined, 'After “will”, use the base verb: “will confirm”.')]
+  }
+] : [
+  { id: 'choice', label: '01–03 · CHOOSE', title: 'Choose the message that fits', questions: [
+    choice('places-c1', 'A visitor asks how to reach a room on level three. Which reply helps most?', ['Take the lift to the third floor, then turn left.', 'Take the lift in the third floor, then turn left.', 'Taking the lift to the third floor, then turn left.'], 0, undefined, 'We say “on the third floor” for a level in a building, and “take” gives a clear instruction.'),
+    choice('places-c2', 'You are welcoming a visitor. Which message is natural?', ['Please wait near the main entrance.', 'Please waiting near the main entrance.', 'Please waited near the main entrance.'], 0, undefined, 'After “please”, use the base verb: “wait”.'),
+    choice('places-c3', 'A colleague asks where the lift is. Which reply is clear?', ['It is next to reception.', 'It is next reception.', 'It is at next to reception.'], 0, undefined, 'Use “next to” to show that two places are side by side.')
   ] },
-  { id: 'match', label: '10–12 · MATCH', title: 'Match meaning', questions: [match(`${prefix}-m1`, 'Match the word to its meaning.', [{ left: words[0], right: 'a useful work word' }, { left: words[1], right: 'a place or action word' }]), match(`${prefix}-m2`, 'Match the phrase to its purpose.', [{ left: 'Please check', right: 'a polite instruction' }, { left: 'Where is…?', right: 'a request for location' }]), match(`${prefix}-m3`, 'Match the time language.', [{ left: 'yesterday', right: 'a finished time' }, { left: 'already', right: 'a result now' }])] },
-  { id: 'truefalse', label: '13–15 · DECIDE', title: 'True or false?', questions: [choice(`${prefix}-t1`, '“Please send the report” is an imperative sentence.', ['True', 'False'], 0), choice(`${prefix}-t2`, '“The office is in the third floor” is the best place phrase.', ['True', 'False'], 1), choice(`${prefix}-t3`, '“I have finished the task” connects a past action to now.', ['True', 'False'], 0)] }
+  { id: 'fill', label: '04–06 · COMPLETE', title: 'Finish useful directions', questions: [
+    fill('places-f1', 'Visitor message: “The training room is on the third _____.”', 'floor', 'We use “on” with a floor in a building.'),
+    fill('places-f2', 'Visitor message: “Please wait near the main _____.”', 'entrance', 'The “entrance” is where people go into a building.'),
+    fill('places-f3', 'Direction: “The lift is _____ to reception.”', 'next', 'The complete place phrase is “next to”.')]
+  },
+  { id: 'order', label: '07–09 · BUILD', title: 'Build directions a visitor can follow', questions: [
+    order('places-o1', 'Put together the first step for a visitor.', ['First,', 'ask', 'at', 'reception.'], ['First,', 'ask', 'at', 'reception.'], 'A clear instruction uses a base verb: “ask”.'),
+    order('places-o2', 'Put together the next step after the lift.', ['Then,', 'turn', 'left', 'at', 'the', 'corner.'], ['Then,', 'turn', 'left', 'at', 'the', 'corner.'], '“Then” shows the next step, followed by the base verb “turn”.'),
+    order('places-o3', 'Put together a clear location message.', ['The', 'meeting', 'room', 'is', 'on', 'the', 'third', 'floor.'], ['The', 'meeting', 'room', 'is', 'on', 'the', 'third', 'floor.'], 'Use “on” with a floor in a building.')]
+  },
+  { id: 'match', label: '10–12 · MATCH', title: 'Match the situation to the direction', questions: [
+    match('places-m1', 'Match each visitor need to the helpful direction.', [{ left: 'A visitor needs a badge.', right: 'Ask at reception.' }, { left: 'A visitor needs level three.', right: 'Take the lift or the stairs.' }]),
+    match('places-m2', 'Match each word to the place it describes.', [{ left: 'entrance', right: 'where you go into a building' }, { left: 'exit', right: 'where you leave a building' }]),
+    match('places-m3', 'Match each phrase to the picture it creates.', [{ left: 'next to reception', right: 'beside reception' }, { left: 'opposite the entrance', right: 'across from the entrance' }])]
+  },
+  { id: 'reply', label: '13–15 · REPLY', title: 'Pick the reply that helps', questions: [
+    choice('places-r1', 'A visitor says: “I am at reception. What do I do next?”', ['Take the lift to the third floor.', 'Taking the lift to the third floor.', 'You took the lift to the third floor.'], 0, undefined, 'A direct instruction uses the base verb: “Take”.'),
+    choice('places-r2', 'A visitor asks: “Is the café close?”', ['Yes, it is nearby.', 'Yes, it is nearbily.', 'Yes, it nearby.'], 0, undefined, '“Nearby” means not far away and works after “is”.'),
+    choice('places-r3', 'A visitor asks where to leave after the meeting. Which reply is best?', ['Use the exit on the left.', 'Use the exit in the left.', 'Use the exit at left.'], 0, undefined, 'We use “on the left” to describe where something is.')]
+  }
 ];
 
 export const lessonEnhancements = {
@@ -109,11 +147,11 @@ export const lessonEnhancements = {
         { tone: 'blue', label: 'RULE 03', title: 'Present Perfect', formula: 'have / has + past participle', explanation: 'Use it for a result that is important now. The exact time is not the focus.', examples: ['I have prepared the agenda.', 'She has checked the schedule.'] },
         { tone: 'rose', label: 'RULE 04', title: 'Ask clearly', formula: 'Did …? / Have …?', explanation: 'Use did for a finished time. Use have or has when the result matters now.', examples: ['Did you send it yesterday?', 'Have you sent it yet?'] }
       ], questions: [
-        choice('g1', 'Choose the best sentence with a finished time.', ['I have sent the report yesterday.', 'I sent the report yesterday.', 'I send the report yesterday.'], 1),
-        choice('g2', 'Choose the best sentence when the result matters now.', ['I have prepared the agenda.', 'I prepared the agenda tomorrow.', 'I prepares the agenda.'], 0),
-        fill('g3', 'Complete: “She _____ checked the schedule.”', 'has'),
-        order('g4', 'Build a clear sentence.', ['The', 'customer', 'needs', 'an', 'update.'], ['The', 'customer', 'needs', 'an', 'update.']),
-        choice('g5', 'Choose the best question.', ['Have you sent the email yet?', 'Did you sent the email yet?', 'Have you send the email yet?'], 0)
+        choice('g1', 'Your colleague asks when you sent the weekly report. Choose your reply.', ['I have sent it yesterday.', 'I sent it yesterday.', 'I send it yesterday.'], 1, undefined, '“Yesterday” is a finished time, so use the Past Simple: “sent”.'),
+        choice('g2', 'Your manager asks whether the agenda is ready. Choose your reply.', ['I have prepared it.', 'I prepared it tomorrow.', 'I prepares it.'], 0, undefined, '“Have prepared” shows that the task is complete and the result matters now.'),
+        fill('g3', 'Maya is ready for the call. Complete her message: “I _____ checked the schedule.”', 'have', 'With “I”, use “have + past participle”: “have checked”.'),
+        order('g4', 'Put together a short update for a colleague.', ['The', 'customer', 'needs', 'an', 'update.'], ['The', 'customer', 'needs', 'an', 'update.'], 'A clear update starts with who needs something, then gives the action or need.'),
+        choice('g5', 'You want to ask if your colleague has completed an email. Which question is natural?', ['Have you sent the email yet?', 'Did you sent the email yet?', 'Have you send the email yet?'], 0, undefined, 'Present Perfect questions use “have + past participle”: “Have you sent…?”')
       ] },
       vocabulary: { title: 'Business-ready vocabulary', intro: 'These ten words are useful in everyday work communication. Flip, read, and use each one in your own sentence.', cards: businessVocabulary, cloze: { title: 'Ten short team messages', intro: 'Complete ten separate sentences. Drag or tap each word into one blank, and use every word once.', blanks: [
         { id: 'b1', before: 'The meeting ', placeholder: '_____', answer: 'agenda', after: ' lists every topic we will discuss tomorrow.' }, { id: 'b2', before: 'The ', placeholder: '_____', answer: 'customer', after: ' sent a question about her order.' }, { id: 'b3', before: 'My ', placeholder: '_____', answer: 'colleague', after: ' sits next to me and works on the same team.' }, { id: 'b4', before: 'Our weekly ', placeholder: '_____', answer: 'schedule', after: ' shows the start time of every meeting.' }, { id: 'b5', before: 'The ', placeholder: '_____', answer: 'deadline', after: ' is Friday at 5 pm, so submit the work before then.' }, { id: 'b6', before: 'Please ', placeholder: '_____', answer: 'prepare', after: ' the slides before the presentation begins.' }, { id: 'b7', before: 'Please ', placeholder: '_____', answer: 'confirm', after: ' by email that you can attend.' }, { id: 'b8', before: 'I will give the team a brief ', placeholder: '_____', answer: 'update', after: ' on the project after lunch.' }, { id: 'b9', before: 'The weekly ', placeholder: '_____', answer: 'report', after: ' includes sales figures and written results.' }, { id: 'b10', before: 'Your ', placeholder: '_____', answer: 'feedback', after: ' on the presentation will help me improve it.' }
@@ -132,7 +170,7 @@ export const lessonEnhancements = {
       dialogues: { title: 'Choose your reply', intro: 'Read the context and choose the reply that fits. The best answer is accurate, polite, and natural.', conversations: businessDialogues },
       listening: { title: 'Listening: a request at work', intro: 'Use the external recording first. Then return here to practise the ideas in the conversation.', source: { title: 'A request from your boss', description: 'A short workplace conversation about arranging a meeting, sending an email, and writing a report.', url: 'https://learnenglish.britishcouncil.org/free-resources/listening/a1/request-your-boss' }, questions: [choice('l1', 'What does the manager need first?', ['An email to the customer', 'A new presentation', 'A report for today'], 0), choice('l2', 'What needs to happen before the team email?', ['Book a meeting room', 'Call the customer', 'Change the deadline'], 0), choice('l3', 'When should the report be written?', ['Immediately', 'When there is time', 'After the customer visit'], 1), choice('l4', 'Which task is described as urgent?', ['Sending an email', 'Writing a report', 'Giving feedback'], 0), choice('l5', 'What does Mario say he can do?', ['Finish a task this week', 'Cancel the meeting', 'Move the customer visit'], 0)] },
       writing: { title: 'Write a short work update', intro: 'Use the grammar and vocabulary from this homework to write a clear, useful message.', prompt: 'Write 80–110 words to a colleague. Give a short update about a task, mention one completed action, explain one next step, and ask the colleague to confirm something.', checklist: ['Use at least four words from the vocabulary cards.', 'Use one Past Simple sentence and one Present Perfect sentence.', 'Add one clear question or polite request.', 'Read it once for clear sentence order.'] },
-      finalTest: { title: 'Put it to use', intro: 'Fifteen mixed tasks. Take your time and use the clues in each sentence.', groups: finalGroups('business', ['agenda', 'deadline']) }
+      finalTest: { title: 'Put it to use', intro: 'Fifteen mixed tasks. Take your time and use the clues in each sentence.', groups: finalGroups('business') }
     }
   },
   '2026-11-16-m6q9v2x4c8n7': {
@@ -149,11 +187,11 @@ export const lessonEnhancements = {
         { tone: 'blue', label: 'RULE 03', title: 'Imperatives', formula: 'base verb + information', explanation: 'Use a base verb for a clear instruction. Add please when you want a polite tone.', examples: ['Turn right at the corner.', 'Please check the location.'] },
         { tone: 'rose', label: 'RULE 04', title: 'Order matters', formula: 'First … Then … Finally …', explanation: 'Sequence words make instructions easier to follow.', examples: ['First, take the lift. Then turn left.', 'Finally, ask at reception.'] }
       ], questions: [
-        choice('g1', 'Choose the best sentence.', ['The reception is next to the entrance.', 'The reception is next the entrance.', 'The reception next to the entrance.'], 0),
-        choice('g2', 'Choose the best instruction.', ['Turn left at the corner.', 'Turning left at the corner.', 'You turn left at the corner?'], 0),
-        fill('g3', 'Complete: “The lift is _____ reception.”', 'next to'),
-        order('g4', 'Build a clear direction.', ['First,', 'go', 'to', 'reception.'], ['First,', 'go', 'to', 'reception.']),
-        choice('g5', 'Choose the best place phrase.', ['on the third floor', 'in the third floor', 'at the third floor'], 0)
+        choice('g1', 'A visitor asks where to get a badge. Choose the helpful reply.', ['Reception is next to the entrance.', 'Reception is next the entrance.', 'Reception next to the entrance.'], 0, undefined, 'Use “next to” to show that two places are side by side.'),
+        choice('g2', 'A visitor has just left the lift. Choose the next instruction.', ['Turn left at the corner.', 'Turning left at the corner.', 'You turn left at the corner?'], 0, undefined, 'Clear directions use the base verb: “Turn”.'),
+        fill('g3', 'Message to a visitor: “The lift is _____ reception.”', 'next to', '“Next to” is the complete phrase for two places that are beside each other.'),
+        order('g4', 'Put together the first step in a visitor message.', ['First,', 'go', 'to', 'reception.'], ['First,', 'go', 'to', 'reception.'], '“First” shows the opening step, followed by the base verb “go”.'),
+        choice('g5', 'You are telling a visitor where the training room is. Choose the natural phrase.', ['on the third floor', 'in the third floor', 'at the third floor'], 0, undefined, 'Use “on” with a floor in a building: “on the third floor”.')
       ] },
       vocabulary: { title: 'Places and visitor vocabulary', intro: 'These ten words are useful for offices, buildings, meetings, and daily directions.', cards: placeVocabulary, cloze: { title: 'Ten visitor messages', intro: 'Complete ten separate sentences. Drag or tap each word into one blank, and use every word once.', blanks: [
         { id: 'p1', before: 'I sent the exact ', placeholder: '_____', answer: 'location', after: ' by message, including the street and building.' }, { id: 'p2', before: 'Visitors enter the building through the main ', placeholder: '_____', answer: 'entrance', after: '.' }, { id: 'p3', before: 'Please ask at ', placeholder: '_____', answer: 'reception', after: ' for your visitor badge.' }, { id: 'p4', before: 'Take the ', placeholder: '_____', answer: 'lift', after: ' to the sixth floor, not the stairs.' }, { id: 'p5', before: 'The training room is on the third ', placeholder: '_____', answer: 'floor', after: '.' }, { id: 'p6', before: 'The map gives one clear ', placeholder: '_____', answer: 'direction', after: ': turn right at the corner.' }, { id: 'p7', before: 'There is a ', placeholder: '_____', answer: 'nearby', after: ' café within two minutes’ walk.' }, { id: 'p8', before: 'Use the fire ', placeholder: '_____', answer: 'exit', after: ' if you need to leave the building quickly.' }, { id: 'p9', before: 'The lift is busy, so please take the ', placeholder: '_____', answer: 'stairs', after: '.' }, { id: 'p10', before: 'Turn left at the next street ', placeholder: '_____', answer: 'corner', after: '.' }
@@ -172,7 +210,7 @@ export const lessonEnhancements = {
       dialogues: { title: 'Choose your reply', intro: 'Practise natural directions and instructions. Choose the response that is clear and fits the conversation.', conversations: placeDialogues },
       listening: { title: 'Listening: giving instructions', intro: 'Open the external practice, listen to the useful phrases, then return here for five questions.', source: { title: 'Giving instructions', description: 'A short video practice about showing someone how to use a coffee machine with clear sequence language.', url: 'https://learnenglish.britishcouncil.org/free-resources/speaking/a2/giving-instructions' }, questions: [choice('l1', 'What is the first action in the instructions?', ['Put the coffee in', 'Press the button', 'Turn the machine off'], 0), choice('l2', 'What happens after the coffee is put in?', ['It is pressed down', 'The machine is moved', 'The cup is washed'], 0), choice('l3', 'Which phrase shows the next step?', ['After that', 'Yesterday', 'At reception'], 0), choice('l4', 'What does Emir ask when he needs more help?', ['What do I do next?', 'Where was the machine?', 'Did I do it yesterday?'], 0), choice('l5', 'Which response gives positive feedback?', ['You are doing well.', 'Do not arrive early.', 'The lift is upstairs.'], 0)] },
       writing: { title: 'Write useful directions', intro: 'Write a short message that helps a new visitor reach a place without confusion.', prompt: 'Write 80–110 words to a visitor who is coming to an office for a meeting. Explain where to enter, where to ask for help, and how to reach the room.', checklist: ['Use at least four words from the vocabulary cards.', 'Use at least three place prepositions.', 'Use First, Then, and Finally.', 'Use two polite imperative sentences.'] },
-      finalTest: { title: 'Put it to use', intro: 'Fifteen mixed tasks. Build clear, useful language for real places and instructions.', groups: finalGroups('places', ['entrance', 'exit']) }
+      finalTest: { title: 'Put it to use', intro: 'Fifteen mixed tasks. Build clear, useful language for real places and instructions.', groups: finalGroups('places') }
     }
   }
 };

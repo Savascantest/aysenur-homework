@@ -58,3 +58,24 @@
   color: #376b4f;
   font-size: .88rem;
 }
+
+.guided-answer {
+  display: block;
+  width: 100%;
+  min-height: 92px;
+  resize: vertical;
+  font: inherit;
+  border: 1px solid #cbd8cd;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+}
+
+.model-answer {
+  margin-top: 12px;
+  padding: 11px 13px;
+  border-radius: 10px;
+  background: #e8f4e9;
+  color: #245f48;
+  font-size: .92rem;
+}

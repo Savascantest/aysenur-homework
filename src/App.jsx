@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { loadBrowserProgress, resetBrowserProgress, saveBrowserProgress } from './lib/browser-progress.js';
 import { lessonEnhancements } from './lib/lesson-content.js';
+import { november25Lesson } from './lib/lesson-2026-11-25.js';
 import './overrides.css';
 
 const tabs = [
@@ -23,6 +24,10 @@ function FillQuestion({ question, value = {}, onChange }) {
   return <article className="practice-question"><p className="question-type">Fill in the blank</p><h4>{question.prompt}</h4><div className="fill-row"><input value={value.text || ''} onChange={(event) => onChange({ ...value, text: event.target.value, checked: false })} placeholder="Type one word or phrase" /><button onClick={() => onChange({ ...value, checked: true })}>Check</button></div><Result correct={correct} waiting={!checked} explanation={question.explanation} /></article>;
 }
 
+function GuidedQuestion({ question, value = {}, onChange }) {
+  return <article className="practice-question"><p className="question-type">Guided answer</p><h4>{question.prompt}</h4><textarea className="guided-answer" value={value.text || ''} onChange={(event) => onChange({ ...value, text: event.target.value })} placeholder="Write your answer in a complete sentence." /><div className="cloze-actions"><button className="check-button" onClick={() => onChange({ ...value, modelShown: true })}>Show model answer</button></div>{value.modelShown && <div className="model-answer"><strong>One natural answer:</strong> {question.modelAnswer}</div>}{value.modelShown && <p className="rule-feedback">Why this works: {question.explanation}</p>}</article>;
+}
+
 function OrderQuestion({ question, value = {}, onChange }) {
   const chosen = value.words || [];
   const available = question.words.filter((word, index) => !chosen.some((picked, pickedIndex) => picked === word && pickedIndex === index));
@@ -40,6 +45,7 @@ function Questions({ questions = [], progress, update, namespace }) {
   const set = (id, value) => update({ answers: { ...progress.answers, [`${namespace}-${id}`]: value } });
   return <section className="question-stack">{questions.map((question) => {
     const value = get(question.id);
+    if (question.type === 'guided') return <GuidedQuestion key={question.id} question={question} value={value} onChange={(next) => set(question.id, next)} />;
     if (question.type === 'fill') return <FillQuestion key={question.id} question={question} value={value} onChange={(next) => set(question.id, next)} />;
     if (question.type === 'order') return <OrderQuestion key={question.id} question={question} value={value} onChange={(next) => set(question.id, next)} />;
     if (question.type === 'match') return <MatchQuestion key={question.id} question={question} value={value} onChange={(next) => set(question.id, next)} />;
@@ -49,7 +55,7 @@ function Questions({ questions = [], progress, update, namespace }) {
 
 function LessonNotes({ section }) { return <div className="section-layout"><div className="section-intro"><p className="eyebrow">TODAY'S HOMEWORK</p><h2>{section.title}</h2><p>{section.intro}</p></div><div className="note-grid">{section.items.map((item) => <article className="note-card" key={item.title}><span>{item.kicker}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div>; }
 
-function Grammar({ section, progress, update }) { return <div className="section-layout"><div className="section-intro"><p className="eyebrow">CLEAR RULES, REAL EXAMPLES</p><h2>{section.title}</h2><p>{section.intro}</p></div><div className="rule-grid">{section.rules.map((rule) => <article className={`rule-card ${rule.tone}`} key={rule.title}><p>{rule.label}</p><h3>{rule.title}</h3><div className="formula">{rule.formula}</div><p>{rule.explanation}</p><div className="examples">{rule.examples.map((example) => <p key={example}>{example}</p>)}</div></article>)}</div><div className="practice-panel"><p className="eyebrow">FIVE-QUESTION PRACTICE</p><h3>Use the rule, not a guess.</h3><Questions questions={section.questions} progress={progress} update={update} namespace="grammar" /></div></div>; }
+function Grammar({ section, progress, update }) { return <div className="section-layout"><div className="section-intro"><p className="eyebrow">CLEAR RULES, REAL EXAMPLES</p><h2>{section.title}</h2><p>{section.intro}</p></div><div className="rule-grid">{section.rules.map((rule) => <article className={`rule-card ${rule.tone}`} key={rule.title}><p>{rule.label}</p><h3>{rule.title}</h3><div className="formula">{rule.formula}</div><p>{rule.explanation}</p><div className="examples">{rule.examples.map((example) => <p key={example}>{example}</p>)}</div></article>)}</div><div className="practice-panel"><p className="eyebrow">FIVE-QUESTION PRACTICE</p><h3>Use the rule, not a guess.</h3><Questions questions={section.questions} progress={progress} update={update} namespace="grammar" /></div>{section.guidedQuestions && <div className="practice-panel"><p className="eyebrow">GUIDED SENTENCE PRACTICE</p><h3>Try each form in a sentence of your own.</h3><Questions questions={section.guidedQuestions} progress={progress} update={update} namespace="guided" /></div>}</div>; }
 
 function Vocabulary({ section, progress, update }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -83,7 +89,7 @@ function FinalTest({ section, progress, update }) { return <div className="secti
 export default function App() {
   const [index, setIndex] = useState({ lessons: [] }); const [lesson, setLesson] = useState(null); const [tab, setTab] = useState('notes'); const [progress, setProgress] = useState(freshProgress());
   useEffect(() => { fetch('./homeworks/index.json').then((response) => response.json()).then(setIndex).catch(() => setIndex({ lessons: [] })); }, []);
-  const chooseLesson = (item) => fetch(`./${item.path}`).then((response) => response.json()).then((data) => { const enhanced = lessonEnhancements[data.id] ? { ...data, ...lessonEnhancements[data.id] } : data; setLesson(enhanced); setProgress({ ...freshProgress(), ...loadBrowserProgress(storage, data.id) }); setTab('notes'); });
+  const chooseLesson = (item) => fetch(`./${item.path}`).then((response) => response.json()).then((data) => { const enhancement = lessonEnhancements[data.id] || november25Lesson[data.id]; const enhanced = enhancement ? { ...data, ...enhancement } : data; setLesson(enhanced); setProgress({ ...freshProgress(), ...loadBrowserProgress(storage, data.id) }); setTab('notes'); });
   useEffect(() => { if (index.lessons?.length) chooseLesson(index.lessons[0]); }, [index]);
   const update = (patch) => { const next = { ...progress, ...patch }; setProgress(next); if (lesson) saveBrowserProgress(storage, lesson.id, next); };
   const completeCount = useMemo(() => Object.keys(progress.answers).filter((key) => progress.answers[key]).length, [progress.answers]);

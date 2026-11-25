@@ -20,6 +20,16 @@
     { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "stairs", "translation": "merdivenler" },
     { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "lift", "translation": "asansör" },
     { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "floor", "translation": "kat" },
-    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "reception", "translation": "danışma" }
+    { "lessonId": "2026-11-16-m6q9v2x4c8n7", "term": "reception", "translation": "danışma" },
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "availability", "translation": "müsaitlik" },
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "parcel", "translation": "paket" },
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "notice", "translation": "duyuru" },
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "visitor", "translation": "ziyaretçi" },
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "shelf", "translation": "raf" },
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "basement", "translation": "bodrum katı" },
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "balcony", "translation": "balkon" },
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "reply", "translation": "yanıt" },
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "delivery", "translation": "teslimat" },
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "appointment", "translation": "randevu" }
   ]
 }

@@ -30,6 +30,16 @@
     { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "balcony", "translation": "balkon" },
     { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "reply", "translation": "yanıt" },
     { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "delivery", "translation": "teslimat" },
-    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "appointment", "translation": "randevu" }
+    { "lessonId": "2026-11-25-a9s4m7p2v6c8", "term": "appointment", "translation": "randevu" },
+    { "lessonId": "2026-11-26-r8n3c5m2v7q4", "term": "forecast", "translation": "hava tahmini" },
+    { "lessonId": "2026-11-26-r8n3c5m2v7q4", "term": "temperature", "translation": "sıcaklık" },
+    { "lessonId": "2026-11-26-r8n3c5m2v7q4", "term": "commute", "translation": "işe gidiş geliş" },
+    { "lessonId": "2026-11-26-r8n3c5m2v7q4", "term": "traffic", "translation": "trafik" },
+    { "lessonId": "2026-11-26-r8n3c5m2v7q4", "term": "shortcut", "translation": "kestirme yol" },
+    { "lessonId": "2026-11-26-r8n3c5m2v7q4", "term": "quantity", "translation": "miktar" },
+    { "lessonId": "2026-11-26-r8n3c5m2v7q4", "term": "container", "translation": "kap" },
+    { "lessonId": "2026-11-26-r8n3c5m2v7q4", "term": "invoice", "translation": "fatura" },
+    { "lessonId": "2026-11-26-r8n3c5m2v7q4", "term": "budget", "translation": "bütçe" },
+    { "lessonId": "2026-11-26-r8n3c5m2v7q4", "term": "supplier", "translation": "tedarikçi" }
   ]
 }

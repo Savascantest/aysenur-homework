@@ -1,0 +1,28 @@
+{
+  "id": "2026-11-26-r8n3c5m2v7q4",
+  "date": "2026-11-26",
+  "title": "Everyday Choices and Clear Plans",
+  "subtitle": "A practical revision pack for weather, quantities, comparisons, and useful work messages.",
+  "policyVersion": "aysenur-english-only-dialogue-revision@2",
+  "templateContractVersion": "aysenur-three-day-dialogue-practice@2",
+  "assessmentPolicyVersion": "aysenur-no-final-quiz@2",
+  "days": [
+    { "id": "day-1", "shortTitle": "Conditions and quantities", "title": "Day 1 — Describe the situation clearly", "intro": "Use impersonal it and quantity phrases in everyday updates.", "activities": [
+      { "id": "notes", "kind": "lesson-notes", "title": "Practical messages", "instructions": "Read the examples and make one message about your day.", "content": "It is raining. It is nearly six o’clock. We have a few questions and a little time." },
+      { "id": "grammar", "kind": "grammar", "title": "Plan around real conditions", "instructions": "Choose the reply that fits the situation.", "content": "Use it for weather, time, distance, and general situations. Use a few with countable plural nouns and a little with uncountable nouns.", "questions": [ { "id": "d1g1", "prompt": "Your train is delayed. Which update fits?", "options": ["It is running ten minutes late.", "There is running ten minutes late.", "It running ten minutes late."], "answer": 0 }, { "id": "d1g2", "prompt": "You are preparing drinks. Which note fits?", "options": ["We have a little water left.", "We have a few water left.", "We have many water left."], "answer": 0 } ] },
+      { "id": "vocabulary", "kind": "vocabulary", "title": "Useful words", "instructions": "Read each word and example.", "content": "forecast, temperature, commute, traffic, shortcut" },
+      { "id": "dialogue", "kind": "dialogue", "title": "A rainy commute", "instructions": "Read both roles and make the time or route your own.", "dialogue": [ { "speaker": "Mina", "text": "Is it still raining near you?" }, { "speaker": "Sam", "text": "Yes, but it should stop soon." }, { "speaker": "Mina", "text": "Do we have a little more time?" }, { "speaker": "Sam", "text": "Yes. Let’s leave ten minutes later." } ], "patterns": ["Is it still raining?", "It should stop soon.", "Do we have a little more time?", "Let’s leave…"] }
+    ] },
+    { "id": "day-2", "shortTitle": "Compare options", "title": "Day 2 — Make a useful choice", "intro": "Compare routes, suppliers, and plans clearly.", "activities": [
+      { "id": "daily", "kind": "daily-use", "title": "Choose the best route", "instructions": "Read the route note aloud, then compare two routes you know.", "content": "The side streets are quieter than the bridge road. This is the best route when there is heavy traffic." },
+      { "id": "reading", "kind": "reading", "title": "A client visit", "instructions": "Read the plan and choose the detail that answers each question.", "content": "The main road is shorter, but the side streets are quieter. The team chooses the shortcut because it is the most reliable route when traffic is heavy.", "questions": [ { "id": "d2r1", "prompt": "Why does the team choose the shortcut?", "options": ["It is the most reliable in heavy traffic.", "It is always the shortest route.", "It is next to the supplier."], "answer": 0 }, { "id": "d2r2", "prompt": "Which route is quieter?", "options": ["The side streets", "The main road", "The bridge"], "answer": 0 } ] },
+      { "id": "listening", "kind": "listening", "title": "Weather and travel", "instructions": "Listen to the external forecast, then answer the questions on the platform.", "content": "Listen for changes in weather and decide what they mean for a travel plan." },
+      { "id": "comparison-dialogue", "kind": "dialogue", "title": "Choosing a supplier", "instructions": "Practise both roles.", "dialogue": [ { "speaker": "Elif", "text": "Which supplier is faster?" }, { "speaker": "Guide", "text": "The local supplier is faster than the other one." }, { "speaker": "Elif", "text": "Which option is best for our budget?" }, { "speaker": "Guide", "text": "The smaller order is the best value this week." } ], "patterns": ["Which supplier is faster?", "… is faster than …", "Which option is best?", "… is the best value."] }
+    ] },
+    { "id": "day-3", "shortTitle": "Put it to use", "title": "Day 3 — Write and say practical plans", "intro": "Use the new language in a clear workplace message.", "activities": [
+      { "id": "writing", "kind": "writing", "title": "Plan a client visit", "instructions": "Write 5–7 sentences for a colleague. Mention weather or time, one amount, and the best route or choice. This written work is for review.", "content": "Useful starters: It is… We have a few… There is a little… This is better than… It is the best…" },
+      { "id": "speaking", "kind": "speaking", "title": "Explain a practical choice", "instructions": "Say four short sentences aloud. Include one sentence with it, one quantity phrase, and two comparisons." },
+      { "id": "final-dialogue", "kind": "dialogue", "title": "Before the visit", "instructions": "Read both roles, then make the details your own.", "dialogue": [ { "speaker": "Lara", "text": "Is it still raining?" }, { "speaker": "Emre", "text": "Yes, but it is lighter now." }, { "speaker": "Lara", "text": "Which route is best?" }, { "speaker": "Emre", "text": "The side street is quieter and more reliable." } ], "patterns": ["Is it still…?", "It is…", "Which route is best?", "… is quieter and more reliable."] }
+    ] }
+  ]
+}
